@@ -1,0 +1,119 @@
+#include <iostream>
+using namespace std;
+
+#define KEY_UP 72
+#define KEY_DOWN 80
+#define KEY_LEFT 75
+#define KEY_RIGHT 77
+
+int main() {
+   //Disclaimer
+   /*
+   Saya membuat bersama dengan Hubbal Kholiq Habbaza (1217050066)
+   Bentuk peta :
+   1 = Jalan
+   2 = Aspal
+   4 = Semak-semak
+   5 = Jembatan
+   6 = Sungai
+   7 = Tangga
+   
+   Kode permainan :
+   Mengarahkan karakter keatas = 72
+   Mengarahkan karakter kebawah = 80
+   Mengarahkan karakter kekanan = 77
+   Mengarahkan karakter kekiri = 75
+   
+   Misi Game untuk tamat : Mencari Pokemon dimap
+   
+   Ketika bertemu pokemon clue kodenya angka 15-20
+   */
+    
+    int panjangPeta = 20; // x
+    int lebarPeta = 16; // y
+    
+    int posisiKarakterY = 0;
+    int posisiKarakterX = 3;
+    
+    int a;
+    
+    cout <<"Selamat Datang di Game"<<endl;
+    cout<<"===Mencari Pokemon!==="<<endl;
+    cout << "Karakter ada di y:" << posisiKarakterY << ", x:" << posisiKarakterX << "\n";
+    
+    int peta[lebarPeta][panjangPeta] = {
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {6,6,6,6,6,6,6,6,5,5,5,6,6,6,6,6,6,6,6,6},
+        {6,6,6,6,6,6,6,6,5,5,5,6,6,6,6,6,6,6,6,6},
+        {6,6,6,6,6,6,6,6,5,5,5,6,6,6,6,6,6,6,6,6},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {1,1,1,1,7,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+        {2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+        {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+        {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+
+
+    };
+    
+    
+    int posisi = 0;
+
+    while(1) {
+
+        cout << "Masukan arrow key ";
+        cin >> posisi;
+        cout << "Arrow key yang dimasukan " << posisi << "\n";
+    
+        if(posisi == 72 && (peta[posisiKarakterY-1][posisiKarakterX] == 1 || peta[posisiKarakterY-1][posisiKarakterX] == 4) && posisiKarakterY >= 0) {
+            // Gerakkan karakter ke atas
+            posisiKarakterY = posisiKarakterY-1;
+        }
+ 
+        if(posisi == 80 && (peta[posisiKarakterY+1][posisiKarakterX] == 1 || peta[posisiKarakterY+1][posisiKarakterX] == 4) && posisiKarakterY < lebarPeta) {
+            // Gerakkan karakter ke atas
+            posisiKarakterY = posisiKarakterY+1;
+        }
+
+        if(posisi == 75 && (peta[posisiKarakterY][posisiKarakterX-1] == 1 || peta[posisiKarakterY][posisiKarakterX-1] == 4) && posisiKarakterX >= 0) {
+            // Gerakkan karakter ke atas
+            posisiKarakterX = posisiKarakterX-1;
+        }
+
+        if(posisi == 77 && (peta[posisiKarakterY][posisiKarakterX+1] == 1 || peta[posisiKarakterY][posisiKarakterX+1] == 4) && posisiKarakterX < panjangPeta) {
+            // Gerakkan karakter ke atas
+            posisiKarakterX = posisiKarakterX+1;
+        }
+        
+        for(int y=0; y<lebarPeta; y++) {
+            for(int x=0; x<panjangPeta; x++) {
+                
+                if(posisiKarakterX == x && posisiKarakterY == y) {
+                    cout << 0 << " ";
+                } else {
+                    cout << peta[y][x] << " ";
+                }
+        if (posisiKarakterY == 1 && posisiKarakterX == 4){
+        	cout<<"Selamat kamu bertemu Rayquaza";
+	cin>>a;
+	if(a == 15){
+		cout<<"Selamat! Kamu berhasil menangkap Rayquaza. Tamat"<<endl;
+	} else{
+		cout<<"Kamu dimakan Rayquaza. Tamat"<<endl;
+	}
+            }
+    			}
+        
+            cout << "\n";
+        }
+    }
+     
+    
+    return 0;
+}
