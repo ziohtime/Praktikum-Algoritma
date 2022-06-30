@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+
+struct mahasiswa{
+    char absen[15];
+    char nama[30];
+    char alamat[50];
+    char job[5];
+};
+
+ 
+
+int main(){
+	
+    mahasiswa mhs;
+
+   	cout << "Absen        : ";
+	cin.getline(mhs.absen,15);
+	
+   	cout << "Nama       : ";
+	cin.getline(mhs.nama,30);
+	
+   	cout << "Alamat     : ";
+	cin.getline(mhs.alamat,50);
+	
+   	cout << "Pekerjaan        : ";
+	cin.getline(mhs.job,5);
+ 
+ 
+
+   cout<< "\n" << endl;
+
+
+   cout << "Absen Anda        : "<<mhs.absen << endl;
+   cout << "Nama Anda       : "<<mhs.nama << endl;
+   cout << "Alamat Anda     : "<<mhs.alamat << endl;
+   cout << "Pekerjaan Anda  : "<<mhs.job << endl;
+
+return 0;
+}
