@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+struct warga_t {
+    int id;
+    string nama;
+    string pekerjaan;
+    int gaji;
+};
+
+int main() {
+    
+    int gajiMaksimalDapetSembako = 1500000;
+    
+    warga_t warga[] = {
+        {1, "Udin", "TukangBecak", 500000},
+        {2, "James", "ShopeeFood", 1100000},
+        {3, "Putri", "DokterMotor", 16000000},
+        {4, "Albert", "TukangSunat", 1300000},
+        {5, "Mirai", "Ultraman", 750000},
+    };
+    
+    for(int i = 0; i < 5; i++) {
+        
+        if(warga[i].gaji > gajiMaksimalDapetSembako) {
+            continue;
+        }
+        
+        cout << "Selamat, " << warga[i].nama << " kepada " << warga[i].pekerjaan << " Anda dapet uang kaget!Dor! \n";
+    }
+    
+}
