@@ -211,7 +211,7 @@ int main() {
 							duit -= bet;
 						}
 						else if(noSatu == noDua && noTiga && duit >= bet){
-							duit += bet;
+							duit += bet*2;
 						}
 					}
 						if(duit==0){
